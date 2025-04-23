@@ -1,10 +1,13 @@
 package com.example.student;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Student {
@@ -17,6 +20,11 @@ public class Student {
 
   private String name;
   private int age;
+
+  private Address address;
+
+  @OneToMany(mappedBy = "students")
+  private List<Laptop> laptops;
 
   public int getId() {
     return id;
@@ -48,6 +56,28 @@ public class Student {
 
   public void setAge(int age) {
     this.age = age;
+  }
+
+  public Address getAddress() {
+    return address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
+
+  public List<Laptop> getLaptops() {
+    return laptops;
+  }
+
+  public void setLaptops(List<Laptop> laptops) {
+    this.laptops = laptops;
+  }
+
+  @Override
+  public String toString() {
+    return "Student [id=" + id + ", roll=" + roll + ", name=" + name + ", age=" + age + ", address=" + address
+        + ", laptops=" + laptops + "]";
   }
 
 }
