@@ -1,33 +1,18 @@
 package com.example;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
-import com.example.student.Laptop;
-import com.example.student.Student;
+import com.example.dummy.Alien;
 
+@SpringBootApplication
 public class Main {
 	public static void main(String[] args) {
-		Configuration configuration = new Configuration()
-				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Student.class)
-				.addAnnotatedClass(Laptop.class);
+		ApplicationContext context = SpringApplication.run(Main.class, args);
 
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Alien alien = context.getBean(Alien.class);
+		alien.code();
 
-		Session session1 = sessionFactory.openSession();
-		Session session2 = sessionFactory.openSession();
-
-		Student s1 = session1.get(Student.class, 1);
-		System.out.println(s1);
-
-		Student s2 = session2.get(Student.class, 1);
-		System.out.println(s2);
-
-		session1.close();
-		session2.close();
-
-		sessionFactory.close();
 	}
 }
