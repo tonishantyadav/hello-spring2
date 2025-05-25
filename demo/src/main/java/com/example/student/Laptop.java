@@ -2,25 +2,12 @@ package com.example.student;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-
-@Entity
 public class Laptop {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   private String name;
   private double price;
 
-  @ManyToMany
-  @JoinTable(name = "student_laptop", joinColumns = @JoinColumn(name = "laptop_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
   private List<Student> students;
 
   public int getId() {

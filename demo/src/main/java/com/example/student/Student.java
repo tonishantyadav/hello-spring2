@@ -2,20 +2,9 @@ package com.example.student;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
-@Entity
 public class Student {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Column(unique = true, nullable = false)
   private int roll;
 
   private String name;
@@ -23,7 +12,6 @@ public class Student {
 
   private Address address;
 
-  @OneToMany(mappedBy = "students")
   private List<Laptop> laptops;
 
   public int getId() {

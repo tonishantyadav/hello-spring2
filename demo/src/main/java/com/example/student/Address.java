@@ -1,8 +1,5 @@
 package com.example.student;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public class Address {
   private String country;
   private String state;
@@ -55,5 +52,4 @@ public class Address {
     return "Address [country=" + country + ", state=" + state + ", city=" + city + ", steet=" + steet + ", pin=" + pin
         + "]";
   }
-
 }
