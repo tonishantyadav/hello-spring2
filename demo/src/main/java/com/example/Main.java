@@ -8,7 +8,6 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
 		Alien alien1 = context.getBean("alien", Alien.class);
-		alien1.setAge(10);
 		alien1.code();
 		System.out.println(alien1.getAge());
 
