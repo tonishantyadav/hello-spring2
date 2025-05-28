@@ -9,9 +9,8 @@ public class Main {
 
 		Alien alien1 = context.getBean("alien", Alien.class);
 		alien1.code();
-
-		Alien alien2 = context.getBean("alien", Alien.class);
-		alien2.code();
+		System.out.println(alien1.getAge());
+		System.out.println(alien1.getSalary());
 
 		((ClassPathXmlApplicationContext) context).close();
 	}
