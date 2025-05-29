@@ -3,21 +3,15 @@ package com.example.dummy;
 public class Alien {
   int age;
   int salary;
-  Laptop laptop;
+  Computer computer;
 
-  public Alien(int age, int salary, Laptop laptop) {
-    this.age = age;
-    this.salary = salary;
-    this.laptop = laptop;
+  public Computer getComputer() {
+    return computer;
   }
 
-  public Laptop getLaptop() {
-    return laptop;
+  public void setComputer(Computer computer) {
+    this.computer = computer;
   }
-
-  // public void setLaptop(Laptop laptop) {
-  // this.laptop = laptop;
-  // }
 
   public int getSalary() {
     return salary;
@@ -37,6 +31,6 @@ public class Alien {
 
   public void code() {
     System.out.println("Coding...");
-    laptop.compiling();
+    computer.compile();
   }
 }
