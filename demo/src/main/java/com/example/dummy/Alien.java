@@ -1,11 +1,12 @@
 package com.example.dummy;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Alien {
+  @Value("23")
   int age;
   int salary;
   Computer computer;
@@ -15,7 +16,6 @@ public class Alien {
   }
 
   @Autowired
-  // @Qualifier("myLaptop")
   public void setComputer(Computer computer) {
     this.computer = computer;
   }

@@ -1,8 +1,10 @@
 package com.example.dummy;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("myLaptop") // Custom name for the Laptop bean
+@Component
+@Scope("prototype")
 public class Laptop implements Computer {
   public Laptop() {
     System.out.println("Laptop object created...");
