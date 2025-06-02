@@ -1,5 +1,7 @@
 package com.example.dummy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,6 +14,8 @@ public class Alien {
     return computer;
   }
 
+  @Autowired
+  // @Qualifier("myLaptop")
   public void setComputer(Computer computer) {
     this.computer = computer;
   }
