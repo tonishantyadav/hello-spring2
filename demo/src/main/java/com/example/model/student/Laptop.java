@@ -1,4 +1,4 @@
-package com.example.student;
+package com.example.model.student;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.course;
+package com.example.model.course;
 
 public class Course {
   private int id;

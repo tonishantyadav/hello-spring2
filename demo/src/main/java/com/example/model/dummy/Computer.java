@@ -1,4 +1,4 @@
-package com.example.dummy;
+package com.example.model.dummy;
 
 public interface Computer {
   void compile();

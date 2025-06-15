@@ -1,4 +1,4 @@
-package com.example.student;
+package com.example.model.student;
 
 public class Address {
   private String country;

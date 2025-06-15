@@ -1,4 +1,4 @@
-package com.example.dummy;
+package com.example.model.dummy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
