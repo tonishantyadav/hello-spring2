@@ -1,18 +1,16 @@
 package com.example.model.student;
 
-import java.util.List;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope("prototype")
 public class Student {
   private int id;
 
   private int roll;
-
-  private String name;
   private int age;
-
-  private Address address;
-
-  private List<Laptop> laptops;
+  private String name;
 
   public int getId() {
     return id;
@@ -46,25 +44,8 @@ public class Student {
     this.age = age;
   }
 
-  public Address getAddress() {
-    return address;
-  }
-
-  public void setAddress(Address address) {
-    this.address = address;
-  }
-
-  public List<Laptop> getLaptops() {
-    return laptops;
-  }
-
-  public void setLaptops(List<Laptop> laptops) {
-    this.laptops = laptops;
-  }
-
   @Override
   public String toString() {
-    return "Student [id=" + id + ", roll=" + roll + ", name=" + name + ", age=" + age + ", address=" + address
-        + ", laptops=" + laptops + "]";
+    return "Student [id=" + id + ", roll=" + roll + ", name=" + name + ", age=" + age + "]";
   }
 }
