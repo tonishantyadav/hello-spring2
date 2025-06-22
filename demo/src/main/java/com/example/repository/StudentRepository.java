@@ -1,6 +1,5 @@
 package com.example.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +22,20 @@ public class StudentRepository {
   }
 
   public void save(Student student) {
-    String query = "insert into student (rollNo, age, name) values (?, ?, ?)";
+    String query = "INSERT INTO student (rollNo, age, name) values (?, ?, ?)";
     int rows = jdbc.update(query, student.getRollNo(), student.getAge(), student.getName());
     System.out.println("Rows affected: " + rows);
   }
 
   public List<Student> findAll() {
-    List<Student> students = new ArrayList<>();
-    return students;
+    String query = "SELECT * FROM student";
+    return jdbc.query(query, (resultSet, rowNo) -> {
+      Student student = new Student();
+      student.setRollNo(resultSet.getInt("rollNo"));
+      student.setAge(resultSet.getInt("age"));
+      student.setName(resultSet.getString("name"));
+      return student;
+    });
   }
 
 }
