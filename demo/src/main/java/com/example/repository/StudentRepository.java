@@ -21,12 +21,14 @@ public class StudentRepository {
     this.jdbc = jdbc;
   }
 
+  // Add new student
   public void save(Student student) {
     String query = "INSERT INTO student (rollNo, age, name) values (?, ?, ?)";
     int rows = jdbc.update(query, student.getRollNo(), student.getAge(), student.getName());
     System.out.println("Rows affected: " + rows);
   }
 
+  // Get all the students
   public List<Student> findAll() {
     String query = "SELECT * FROM student";
     return jdbc.query(query, (resultSet, rowNo) -> {
