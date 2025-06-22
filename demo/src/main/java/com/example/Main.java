@@ -15,16 +15,14 @@ public class Main {
 		ApplicationContext context = SpringApplication.run(Main.class, args);
 
 		Student student = context.getBean(Student.class);
-		student.setId(1);
-		student.setRoll(101);
+		student.setRollNo(5);
 		student.setAge(21);
-		student.setName("John Smith");
+		student.setName("Tessa Flower");
 
 		StudentService studentService = context.getBean(StudentService.class);
 		studentService.addStudent(student);
 
 		List<Student> students = studentService.getStudents();
 		System.out.println(students);
-
 	}
 }

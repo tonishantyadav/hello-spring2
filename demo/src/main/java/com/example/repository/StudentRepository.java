@@ -3,11 +3,15 @@ package com.example.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.example.model.student.Student;
 
+@Repository
 public class StudentRepository {
+  @Autowired
   private JdbcTemplate jdbc;
 
   public JdbcTemplate getJdbc() {
@@ -19,8 +23,8 @@ public class StudentRepository {
   }
 
   public void save(Student student) {
-    String query = "insert into student(roll, age, name) values(?, ?, ?)";
-    int rows = jdbc.update(query, student.getRoll(), student.getAge(), student.getName());
+    String query = "insert into student (rollNo, age, name) values (?, ?, ?)";
+    int rows = jdbc.update(query, student.getRollNo(), student.getAge(), student.getName());
     System.out.println("Rows affected: " + rows);
   }
 

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS student (
+  rollNo INT PRIMARY KEY,
+  age INT,
+  name VARCHAR(255)
+);
