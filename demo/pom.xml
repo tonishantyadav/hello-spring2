@@ -32,10 +32,10 @@
 	</properties>
 	<dependencies>
 		<!-- Hibernate ORM (not needed if you're only using JDBC, optional) -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<!-- dotenv (optional for managing env vars) -->
 		<dependency>
@@ -77,14 +77,31 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Servlet API -->
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<version>4.0.4</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- Embeded Tomcat Server -->
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-core</artifactId>
+		<version>8.5.96</version>
+	</dependency>
+
 	<build>
 		<plugins>
 
+			<!-- Spring Boot Maven Plugin: Used to package and run Spring Boot applications -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
+			<!-- Exec Maven Plugin: Allows running Java programs from Maven command line -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
