@@ -2,42 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.7</version>
 		<relativePath/>
-		<!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hello-spring2</name>
 	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
-	<dependencies>
-		<!-- Hibernate ORM (not needed if you're only using JDBC, optional) -->
-		<!-- <dependency>
-			<groupId>org.hibernate.orm</groupId>
-			<artifactId>hibernate-core</artifactId>
-		</dependency> -->
 
-		<!-- dotenv (optional for managing env vars) -->
+	<dependencies>
+		<!-- dotenv -->
 		<dependency>
 			<groupId>io.github.cdimascio</groupId>
 			<artifactId>java-dotenv</artifactId>
@@ -51,7 +35,7 @@
 			<version>9.2.0</version>
 		</dependency>
 
-		<!-- ✅ JDBC Starter -->
+		<!-- JDBC Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
@@ -63,7 +47,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- Web Starter (for REST APIs) -->
+		<!-- Spring Boot Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -75,39 +59,45 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Servlet API -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>4.0.4</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-
-	<!-- Servlet API -->
-	<dependency>
-		<groupId>jakarta.servlet</groupId>
-		<artifactId>jakarta.servlet-api</artifactId>
-		<version>4.0.4</version>
-		<scope>provided</scope>
-	</dependency>
-
-	<!-- Embeded Tomcat Server -->
-	<dependency>
-		<groupId>org.apache.tomcat.embed</groupId>
-		<artifactId>tomcat-embed-core</artifactId>
-		<version>8.5.96</version>
-	</dependency>
 
 	<build>
 		<plugins>
-
-			<!-- Spring Boot Maven Plugin: Used to package and run Spring Boot applications -->
+			<!-- Spring Boot Plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- Exec Maven Plugin: Allows running Java programs from Maven command line -->
+			<!-- Exec Plugin for manual Java class run -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.1.0</version>
+				<configuration>
+					<mainClass>com.example.Main</mainClass>
+				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-core</artifactId>
+				<version>10.1.42</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
 </project>
